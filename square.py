@@ -11,10 +11,6 @@ def memoize(f):
             memo[x]=f(x)
         return memo[x]
     return helper
-    end = 101
-    for i in xrange(end):
-        d[i**2] = 1
-    return d
 
 @memoize
 def answer(n):
@@ -30,7 +26,3 @@ def answer(n):
                 return 1
             temp += [answer(n-i**2)]
         return 1+min(temp)
-        
-            
-            
-        
