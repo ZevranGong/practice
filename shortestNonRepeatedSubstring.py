@@ -1,13 +1,11 @@
 def memoize(f):
     memo={}
-    end = 101
-    for i in xrange(end):
-        memo[i**2] = 1
     def helper(x):
         if x not in memo:
             memo[x]=f(x)
         return memo[x]
     return helper
+
 
 
 def test(chunk,word):
@@ -26,7 +24,7 @@ def helper(tup):
         for i in xrange(len(chunk)):
             if chunk[i:i+wordlen]==word:
                 temp = chunk[:i]+chunk[i+wordlen:]
-                one =test(temp,word)
+                one =helper((temp,word))
                 l+=[one]
         for i in xrange(len(l)):
             if len(l[i]) < minC:
