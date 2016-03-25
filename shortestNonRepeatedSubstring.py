@@ -26,9 +26,11 @@ def helper(tup):
                 temp = chunk[:i]+chunk[i+wordlen:]
                 one =helper((temp,word))
                 l+=[one]
+        #Find the shortest non-repeated substring
         for i in xrange(len(l)):
             if len(l[i]) < minC:
                 minC=len(l[i])
+        #if several have same length, use alphabetical order
         for i in xrange(len(l)):
             if len(l[i])==minC:
                 raw+=[l[i]]
